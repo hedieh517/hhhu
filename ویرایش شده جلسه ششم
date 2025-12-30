@@ -1,0 +1,37 @@
+#جلسه ششم کلاس والد و فرزند
+from abc import ABC, abstractmethod
+
+class vehicle(ABC):
+    def __init__(self , brand , year):
+        self.brand = brand
+        self.year = year
+
+    @abstractmethod
+    def display_info(self):
+        pass
+        
+class car(vehicle):
+    def __init__(self , brand , year , num_doors):
+        vehicle.__init__(self , brand , year)
+        self.num_doors = num_doors
+        
+    def display_info(self):
+        print(f"brand : {self.brand} , year : {self.year}")
+        print(f"extra number of doors: {self.num_doors}")
+        
+   
+class motorcycle(vehicle):
+    def __init__(self , brand , year , has_sidecar):
+        vehicle.__init__(self , brand , year)
+        self.has_sidecar = has_sidecar
+        
+    def display_info(self):
+        print(f"brand : {self.brand} , year : {self.year}")
+        print(f"ezafe kardn has_sidecar: {self.has_sidecar}")
+            
+
+c = car("benz" , 2010 , 4)
+c.display_info() 
+
+m = motorcycle("bmw" , 2025  ,True)
+m.display_info()
